@@ -104,6 +104,7 @@ function App() {
 
         <div><button className="start-btn" onClick={startGame}>START GAME</button></div>
         
+        <a href="https://shadowverse.com/" target="_blank" rel="noopener noreferrer">Play Shadowverse now!</a>
         <a href="https://github.com/ta457/shadowverse-memo" target="_blank" rel="noopener noreferrer">Github repo</a>
       </Modal>
 
