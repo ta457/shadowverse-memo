@@ -1,0 +1,39 @@
+.app-container {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+.opening {
+  background-image: url("../assets/background/opening_bg.png");
+}
+.forest {
+  background-image: url("../assets/background/forest_bg.png");
+}
+.sword {
+  background-image: url("../assets/background/sword_bg.png");
+}
+.rune {
+  background-image: url("../assets/background/rune_bg.png");
+}
+.dragon {
+  background-image: url("../assets/background/dragon_bg.png");
+}
+.shadow {
+  background-image: url("../assets/background/shadow_bg.png");
+}
+.blood {
+  background-image: url("../assets/background/blood_bg.png");
+}
+.haven {
+  background-image: url("../assets/background/haven_bg.png");
+}
+.portal {
+  background-image: url("../assets/background/portal_bg.png");
+}
+
+.start-btn {
+  font-weight: bold;
+}

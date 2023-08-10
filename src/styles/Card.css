@@ -1,0 +1,46 @@
+.card-inner img {
+  width: 180px;
+}
+.card-front {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  padding: 5px;
+}
+.card-front:hover{
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.719);
+}
+
+/* =============================================== */
+.flip-card {
+  width: 180px;
+  height: 235px;
+  cursor: pointer;
+}
+
+.card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.flip-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
