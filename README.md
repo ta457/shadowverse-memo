@@ -1,3 +1,3 @@
 # Shadowverse Memory Card
 
-[Live Page](https://mokapot-svmemo.netlify.app/)
+[Live Page](https://mokapotsv-svmemo.netlify.app/)
