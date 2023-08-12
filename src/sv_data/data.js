@@ -6,6 +6,7 @@ import { shadowData } from "./card_data/shadow.js"
 import { bloodData } from "./card_data/blood.js"
 import { havenData } from "./card_data/haven.js"
 import { portalData } from "./card_data/portal.js"
+import { neutralData } from "./card_data/neutral.js"
 
 //card ID rules
 //1
@@ -81,4 +82,25 @@ const getCardIDs = (passedClass, passedPackID) => {
   return cards;
 }
 
-export { getCardIDs }
+const getCardIDsHard = (passedClass, passedPackID) => {
+  let neutralCards = [];
+  neutralData.forEach(item => {
+    if(item.packID === passedPackID) {
+      neutralCards = item.cards;
+    }
+  });
+
+  const classCards = getCardIDs(passedClass, passedPackID);
+
+  return neutralCards.concat(classCards);
+}
+
+const cardShuffle = (array) => { 
+  for (let i = array.length - 1; i > 0; i--) { 
+    const j = Math.floor(Math.random() * (i + 1)); 
+    [array[i], array[j]] = [array[j], array[i]]; 
+  } 
+  return array; 
+};
+
+export { getCardIDs, getCardIDsHard, cardShuffle }

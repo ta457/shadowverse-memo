@@ -1,21 +1,13 @@
 import '../styles/Game.css';
 import { useState } from 'react';
 import { Card } from './Card';
-import { getCardIDs } from '../sv_data/data.js'
+import { cardShuffle } from '../sv_data/data.js'
 
 // eslint-disable-next-line react/prop-types
-function Game({ selectedClass, selectedPack, difficulty, closeGame, gameOver, playerWon }) {
-  const [cardArr, setcardArr] = useState(getCardIDs(selectedClass, selectedPack));
+function Game({ difficulty, closeGame, gameOver, playerWon, cardArray }) {
+  const [cardArr, setcardArr] = useState(cardShuffle(cardArray));
   const [selectedCards, setSelectedCards] = useState([]);
   const [isFlipped, setIsFlipped] = useState(true);
-
-  const shuffle = (array) => { 
-    for (let i = array.length - 1; i > 0; i--) { 
-      const j = Math.floor(Math.random() * (i + 1)); 
-      [array[i], array[j]] = [array[j], array[i]]; 
-    } 
-    return array; 
-  };
 
   const handleCardClick = (item) => {
     // console.log(item);
@@ -32,7 +24,7 @@ function Game({ selectedClass, selectedPack, difficulty, closeGame, gameOver, pl
       playerWon();
     }
 
-    setcardArr(prevArr => shuffle(prevArr));
+    setcardArr(prevArr => cardShuffle(prevArr));
     
     setIsFlipped(!isFlipped);
   };

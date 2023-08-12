@@ -10,6 +10,7 @@ import dragonLogo from './assets/class_logo/dragon_logo.png'
 import bloodLogo from './assets/class_logo/blood_logo.png'
 import havenLogo from './assets/class_logo/haven_logo.png'
 import portalLogo from './assets/class_logo/portal_logo.png'
+import { getCardIDs, getCardIDsHard, cardShuffle } from './sv_data/data.js'
 
 function App() {
   const [background, setBackground] = useState('opening')
@@ -54,11 +55,22 @@ function App() {
     setSelectedDifficulty(difficulty);
   };
 
+  const getCardArray = (selectedDifficulty) => {
+    let cardArray = [];
+    if(selectedDifficulty === 20) {
+      cardArray = getCardIDsHard(selectedClass, selectedPack);
+    } else {
+      cardArray = getCardIDs(selectedClass, selectedPack);
+    }
+    cardArray = cardShuffle(cardArray);
+    cardArray = cardArray.slice(0, selectedDifficulty);
+    return cardArray;
+  }
+
   const classes = ['forest','sword','rune','dragon',
     'shadow','blood','haven','portal'];
   const logo = [forestLogo, swordLogo, runeLogo, dragonLogo,
     shadowLogo, bloodLogo, havenLogo, portalLogo];
-  
     return (
     <div className={'app-container' + ' ' + background + ' ' + (gameOpen ? 'game-running' : '')}>
       <Modal isOpen={modalOpen}>
@@ -83,8 +95,8 @@ function App() {
         <p>Select a difficulty:</p>
         <div>
           <button
-            className={selectedDifficulty === 6 ? 'selected' : ''}
-            onClick={() => handleDifficultyChange(6)}
+            className={selectedDifficulty === 5 ? 'selected' : ''}
+            onClick={() => handleDifficultyChange(5)}
           >
             Easy
           </button>
@@ -95,8 +107,8 @@ function App() {
             Medium
           </button>
           <button
-            className={selectedDifficulty === 12 ? 'selected' : ''}
-            onClick={() => handleDifficultyChange(12)}
+            className={selectedDifficulty === 20 ? 'selected' : ''}
+            onClick={() => handleDifficultyChange(20)}
           >
             Hard
           </button>
@@ -122,12 +134,11 @@ function App() {
 
       {gameOpen ? (
         <Game 
-          selectedClass={selectedClass}
-          selectedPack={selectedPack}
           difficulty={selectedDifficulty}
           closeGame={closeGame}
           gameOver={gameOver}
           playerWon={playerWon}
+          cardArray={getCardArray(selectedDifficulty)}
         />
       ) : (<></>)}
     </div>
