@@ -1,3 +1,5 @@
 # Shadowverse Memory Card
 
-[Live Page](https://mokapot-svmemo.netlify.app/)
+Built with Vite & React.
+
+[Live Page](https://svmemo.netlify.app/)
