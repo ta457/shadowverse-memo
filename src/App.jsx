@@ -92,7 +92,7 @@ function App() {
           <option value="29">Heroes of Rivenbrandt</option>
         </select>
 
-        <p>Select a difficulty:</p>
+        <p>Choose difficulty:</p>
         <div>
           <button
             className={selectedDifficulty === 5 ? 'selected' : ''}
